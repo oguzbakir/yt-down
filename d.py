@@ -1,8 +1,13 @@
 from subprocess import call
 import time
-call (["brew install bash"], shell=True)
+file = open("urls.txt","r")
+call (["echo '\033[1;31m This script requires brew \033[0m'"], shell=True)
 time.sleep(1)
-call (["echo '\033[1;31m This script requires brew and curl \033[0m'"], shell=True)
-time.sleep(4)
+call (["brew install bash"], shell=True)
 call (["brew install libav"], shell=True)
-call (["sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl"], shell=True)
+call (["brew install youtube-dl"], shell=True)
+for line in file.readlines():
+	liste = line
+	my="youtube-dl -x --audio-format mp3 "+liste
+	call ([my], shell=True)
+file.close()
