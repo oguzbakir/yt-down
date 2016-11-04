@@ -10,7 +10,13 @@ else:
 	call (["brew install bash"], shell=True)
 	call (["brew install libav"], shell=True)
 	call (["brew install youtube-dl"], shell=True)
-	for line in file.readlines():
-		my="youtube-dl -x --audio-format mp3 "+liste
-		call ([my], shell=True)
+	k = int(input("1-Mp4\n2-Mp3\nSelect One : "))
+	if k == 2:
+		for line in file.readlines():
+			my="youtube-dl -x --audio-format mp3 "+line
+			call ([my], shell=True)
+	if k == 1:
+		for line in file.readlines():
+			my="youtube-dl "+line
+			call ([my], shell=True)
 	file.close()
