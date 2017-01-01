@@ -13,10 +13,10 @@ else:
 	k = int(input("1-Mp4\n2-Mp3\nSelect One : "))
 	if k == 2:
 		for line in file.readlines():
-			my="youtube-dl -x --audio-format mp3 "+line
+			my="youtube-dl -x --no-check-certificate --audio-format mp3 "+line
 			call ([my], shell=True)
 	if k == 1:
 		for line in file.readlines():
-			my="youtube-dl "+line
+			my="youtube-dl --no-check-certificate "+line
 			call ([my], shell=True)
 	file.close()
